@@ -33,6 +33,20 @@ def test_buy_product(set_up, set_group):
     options.add_argument("--disable-gpu")
     options.add_argument("--window-size=1920,1080")
     
+    # Блокируем уведомления и всплывающие окна
+    prefs = {
+        "profile.default_content_setting_values.notifications": 2,  # Блокировать
+        "profile.default_content_setting_values.popups": 2,         # Блокировать всплывающие
+        "credentials_enable_service": False,                        # Отключить сохранение паролей
+        "profile.password_manager_enabled": False
+    }
+    options.add_experimental_option("prefs", prefs)
+
+    # Дополнительные опции против всплывающих окон
+    options.add_argument("--disable-notifications")
+    options.add_argument("--disable-popup-blocking")
+    options.add_argument("--disable-infobars")
+
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(options=options, service=service)
 
