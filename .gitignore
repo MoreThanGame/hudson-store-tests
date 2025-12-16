@@ -1,0 +1,49 @@
+cat > .gitignore << 'EOF'
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Selenium/Chrome драйверы
+chromedriver*
+geckodriver*
+edgedriver*
+
+# Логи и результаты тестов
+*.log
+logs/
+screen/
+screenshots/
+allure-results/
+allure-report/
+test-reports/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Конфигурационные файлы с данными
+.env
+config.ini
+secrets.json
+credentials.py
+test_data.py
+
+# Mac системные файлы
+.DS_Store
+._*
+EOF
